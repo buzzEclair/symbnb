@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h4 class="title-page-header"><span class="city-name-title">Paris</span> - Logement Star</h4>
+    <div class="row">
+        <div class="col-sm">
+        <a href="">
+        <div class="card" style="width: 18rem;">  
+            <img class="card-img-top" src="" alt="Card image cap">
+            <div class="card-body">
+                <h6><span class="card-parameter-surface">logement entier</span> - <span class="card-parameter-bed"></span> lits</h6>
+                <h5 class="card-title"></h5>
+                <p class="card-info-1">
+                <span class="card-parameter-price"></span> € par nuit - <span class="card-parameter-cancel">Annulation gratuite</span>
+                </p>
+                <p class="card-info-2">
+                <span class="card-parameter-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span class="card-parameter-vote">124</span> . <span class="card-parameter-rank">Kinghost</span>
+                </p>
+            </div>
+        </div>
+        </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

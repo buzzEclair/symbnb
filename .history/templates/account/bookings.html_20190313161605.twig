@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos réservation{% endblock %}
+
+{% block body %}
+<div class="container"> 
+        <h4>Mes Réservation</h4>
+        {% for booking in app.user.bookings %}
+        <div class="row">
+           <div class="col-4">
+               <img src="{{booking.ad.coverImage}}"  class="w-100" alt="">
+               {{booking.ad.title}}
+           </div>
+           <div class="col-8">
+               <h4>{{booking.ad.title}}</h4>
+               <p>Réservation <strong>n°{{ booking.id }}</strong><br>
+                    Du {{booking.startDate|date('d/m/Y')}} au {{booking.endDate|date('d/m/Y')}} {{booking.amount}} &euro;
+                </p>
+                <a href="{{ path('booking_show', {'id': booking.id}) }}" class="btn btn-info btn-sm">Plus d'information</a>
+                <a href="{{ path('account_bookings_comment', {'id': booking.id}) }} " class="btn btn-info btn-sm">Laisser un commentaire</a>
+           </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

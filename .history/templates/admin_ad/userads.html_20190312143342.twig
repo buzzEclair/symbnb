@@ -1,0 +1,49 @@
+{% extends 'admin_ad/base.html.twig' %}
+
+{% block body %}
+<div class="col-md-9 col-lg-10 p-0">
+    <div class="jumbotron jumbotron-fluid pt-4 pb-4">
+        <div class="container">
+            <h1 class="display-4">gestion des annonces {{user.id}}</h1>
+            <p class="lead">Espace de gestion des annonces.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h3>Liste des annonces</h3>
+        <table class="table table-striped m-4">
+                <thead>
+                  <tr>
+                    <th scope="col">Titre de l'annonce</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Nombres commentaires</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for ad in ads %}
+                    {% if ad.author.id == user.id %}
+                    <tr>
+                    <th>{{ad.title}}</th>
+                    <th>{{ad.author.firstName}} {{ad.author.lastName}}</th>
+                    <td>10</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ path('admin_ads_edit', {'slug':ad.slug}) }}">Modidier</a>
+                                <a class="dropdown-item" href="{{ path('admin_ad_delete', {'id': ad.id}) }}">Supprimer</a>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+                    {% else %}
+                    <th><strong>Il n'y a pas d'annonce pour cette utilisateur</strong></th>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

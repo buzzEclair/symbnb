@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une annone{% endblock %}
+
+{% form_theme form _self ù}
+
+{% block body %}
+    <div class="container">
+        <h1>Création d'une annonce</h1>
+
+        {{ form_start(form)}}
+        <form>
+            <div class="form-group">
+                {{form_label(form.title)}}
+                {{form_widget(form.title, 
+                    {'attr': {'class': 'form-control', 'placeholder': 'Titre de l\'annonce'} })
+                }}
+            </div> 
+        </form>
+       
+        <button class="btn btn-primary" type="submit">Créer une annonce</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block form_row %}
+
+{% endblock %}

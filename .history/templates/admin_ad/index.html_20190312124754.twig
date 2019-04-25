@@ -1,0 +1,33 @@
+{% extends 'admin_ad/base.html.twig' %}
+
+{% block body %}
+<div class="col-md-9 col-lg-10 p-0">
+    <div class="jumbotron jumbotron-fluid pt-4 pb-4">
+        <div class="container">
+            <h1 class="display-4">Dashboard Home</h1>
+            <p class="lead">Espace de gestion des données.</p>
+        </div>
+    </div>
+    <div class="row m-2 d-flex justify-content-center">
+            <div class="col-sm-6 col-md-5">
+              <div class="card border border-success">
+                <div class="card-body">
+                  <h5 class="card-title text-success">Gestion des annonces</h5>
+                  <p class="card-text">Ajouter / supprimer / modifier des annonces.</p>
+                  <a href=" " class="btn btn-success">Accéder aux annonces</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-5">
+              <div class="card border border-success">
+                <div class="card-body">
+                  <h5 class="card-title text-success">Gestion des utilisateurs</h5>
+                  <p class="card-text">Ajouter / supprimer / modifier des utilisateurs.</p>
+                  <a href="" class="btn btn-success">Accéder aux utilisateurs</a>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une annone{% endblock %}
+
+{% form_theme form 'ad/_collection.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Création d'une annonce</h1>
+
+        {{ form_start(form)}}
+
+        {{form_widget(form)}}
+
+        <button class="btn btn-primary" type="submit">Créer une annonce</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+<script>
+    $('#add-image').click(function(){
+        const index = +$('#widgets-counter').val();
+        const tmpl = $('#ads_images').data('prototype').replace(/__name__/g, index);
+        $('#ads_images').append(tmpl);
+
+        $('#widgets-counter').val(index + 1);
+
+        handleDeleteButtons();
+    });
+
+function handleDeleteButtons(){
+    $('button[data-action="delete"]').click(function(){
+        const target = this.dataset.target
+        console.log(target);
+        $(target).remove();
+    });
+}
+handleDeleteButtons();
+</script>
+{% endblock %}

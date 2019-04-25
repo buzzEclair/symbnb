@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ad.title}}{% endblock %}
+
+{% block body %}
+<style>
+    .container{padding-top: 150px;}
+</style>
+
+<div class="container">
+    <h1 class="title-page-header"><span class="city-name-title">{{ad.title}}</h1>
+</div>
+
+{% endblock %}

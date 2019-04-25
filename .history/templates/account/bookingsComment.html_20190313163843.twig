@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Laissez un commentaire{% endblock %}
+{{dump(ad)}}
+{% block body %}
+<div class="container"> 
+    {{ form_start(form) }}
+
+    {{form_widget(form)}}
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}

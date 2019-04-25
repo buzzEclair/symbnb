@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/base.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body> 
+        
+        {% include 'partials/header.html.twig' %}
+        
+        <style>
+            .container{padding-top: 150px;}
+        </style>
+        {% block body %}{% endblock %}
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

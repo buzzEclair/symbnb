@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+   
+        <h1 class="logo mb-5">Symbnb</h1>
+        {{ form_start(form)}}
+
+                    {{form_widget(form)}}
+    
+
+                    <hr class="my-4">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Inscription</button>
+                    </form>
+        <p class="mt-5 mb-3 text-muted text-center">© 2019</p>
+    </form> 
+   
+</div>
+{% endblock %}

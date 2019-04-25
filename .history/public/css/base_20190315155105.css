@@ -1,0 +1,326 @@
+body, a{
+    color: #232323;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.logo{
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    position: relative;
+    margin-left: 20px;
+}
+
+.logo::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background: #fe7576;
+    margin-top: 12px;
+    margin-left: -15px;;
+}
+
+ul{
+    padding: 0;
+}
+
+ul li{
+    list-style: none;
+}
+.card-parameter-stars i{
+    color: #008489;
+    font-size: 12px;
+    letter-spacing: -3px;
+}
+
+.datepicker table tr td.disabled{
+    color: crimson !important;
+    background: rgba(0, 0, 0, 0.815);
+}
+
+.container{
+    margin-top: 50px;
+}
+
+.card{
+    max-width: 270px;
+    border: none;
+    margin-bottom: 50px !important;
+    box-shadow: 1px 1px 21px 0 rgba(0,0,0,0.14), -1px -1px 21px 0 rgba(0,0,0,0.14);
+    transition-duration: 0.5s;
+}
+
+.card h6{
+   font-size: 13px;
+   font-weight: 600;
+}
+
+.card h5{
+   font-size: 15px;
+   font-weight: 900;
+}
+
+.card-ad img{
+    min-height: 160px;
+}
+
+.card:hover{
+    box-shadow: 1px 1px 21px rgba(254,117,118,0.4), -1px -1px 21px 0 rgba(254,117,118,0.4);
+}
+
+.card-info-1{
+    font-size: 13px;
+}
+
+.card-info-2{
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #232323;
+}
+
+.title-page-header{
+    margin-bottom: 40px;
+}
+
+.user-avatar-nav{
+    width: 30px;
+    margin-right: 5px;
+}
+
+.dropdown-account i {
+    color: #008489;
+}
+
+.block-profile{
+    box-shadow: 1px 1px 21px 0 rgba(0, 0, 0, 0.062), -1px -1px 21px 0 rgba(0, 0, 0, 0.062);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.block-profile p{
+    margin-bottom: 5px;
+}
+
+.block-profile .booking-profile .booking-profile-ligne{
+    background: #f3f3f3;
+    height: 80px;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.block-profile .booking-profile .booking-profile-ligne img{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.block-profile .booking-profile .booking-profile-ligne .info-booking-profile{
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-profile .booking-profile .booking-profile-ligne .info-booking-profile span{
+    margin-left: 10px;
+}
+
+.block-profile .booking-profile .booking-profile-ligne .info-booking-profile a{
+    font-size: 10px;
+    background: #fe7576;
+    color: white;
+}
+
+.block-profile .ad-profile a img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+
+}
+.block-profile .ad-profile p{
+    font-size: 13px;
+    color: #008489;
+}
+
+.profile-option li{
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.ad-content{
+    margin-top: 50px;
+}
+
+.ad-info h5{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.ad-info h4{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.ad-info h6{
+    font-size: 15px;
+}
+
+.img-ad{
+    padding:0;
+}
+
+.img-ad img{
+   width: 100%;
+}
+
+.card-booking{
+    max-width: 100%;
+}
+
+.card-booking .img-ad-user{
+    height: 45px;
+    border-radius: 100%;
+}
+
+span.price-booking{
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.card-booking-stars{
+    font-size: 13px;
+}
+.card-booking-stars .param-booking-stars i{
+    color: #008489;
+    font-size: 10px;
+    letter-spacing: -3px;
+}
+
+.card-parameter-vote{
+    margin-left: 5px;
+}
+
+.btn-booking{
+    display: block;
+    background: #fe7576;
+    height: 42px;
+    width: 80%;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+
+.btn-booking:hover{
+    color: white;
+}
+.media-comment{
+    margin-bottom: 20px;
+}
+.media-comment img{
+    width: 64px;
+}
+
+.media-comment h5{
+    font-size: 15px;
+}
+
+.media-comment i{
+    font-size: 11px;
+    letter-spacing: -3px;
+    color: #008489;
+}
+
+.media-body{
+    background: #c4dedf;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.card-ad{
+    margin: 0 auto;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+h1.logo{
+    font-size: 50px;
+}
+
+h1.logo::before{
+    width: 15px;
+    height: 15px;
+    margin-top: 25px;
+    margin-left: -25px;
+}
+
+.btn-login{
+    display: block;
+    background: #fe7576;
+    height: 42px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    width: 100%;
+}
+
+.booking-stage{
+    position: relative;
+    width: 100%;
+}
+
+.booking-stage span.overlay{
+    background: rgb(254, 117, 118);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.booking-stage img{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 21px 0 rgba(0,0,0,0.14), -1px -1px 21px 0 rgba(0,0,0,0.14);
+}
+
+.content-booking-stage{
+    position: absolute;
+    top:0;
+    z-index: 2;
+    color: white;
+    width: 100%;
+}
+
+.content-booking-stage h1{
+    margin-top: 30px;
+    text-align: center; 
+}
+
+.content-booking-stage .date-booking{
+    border: 2px solid white;
+    height: 120px;
+}
+
+.content-booking-stage .date-booking input{
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+}

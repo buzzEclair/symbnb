@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-5">
+            <div class="row">
+                <div class="col-12 bill-recap">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="logo text-center logo-bill">Symbnb</p>
+                        </div>
+                        <div class="col-6 divider-bill">Numéro</div>
+                        <div class="col-6 divider-bill strong-text">{{booking.id}}</div>
+                        <div class="col-6 divider-bill">Date d'arrivée</div>
+                        <div class="col-6 divider-bill strong-text">{{booking.startDate | date('d/m/y')}}</div>
+                        <div class="col-6 divider-bill">Date de départ</div>
+                        <div class="col-6 divider-bill strong-text">{{booking.endDate | date('d/m/y')}}</div>
+                        <div class="col-6 divider-bill">Nombre de nuit</div>
+                        <div class="col-6 divider-bill strong-text">{{booking.duration}}</div>
+                        <div class="col-6 divider-bill">Montant total</div>
+                        <div class="col-6 divider-bill strong-text">{{booking.amount}} &euro;</div>
+                        <div class="col-12 bill-comment-title">Votre commentaire</div>
+                        <div class="col-12 bill-comment">{% if booking.comment is null %}
+                                Vous n'avez pas saisis de commentaire
+                                {% else %}
+                                {{booking.comment}}
+                                {% endif %}</div>
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12"><img class="w-100" src="{{booking.ad.coverImage}}" alt=""></div>
+    </div>
+        
+    <h2>Votre réservation n° {{booking.id}}</h2>
+    <div class="row">
+        <div class="col-6">
+            <div class="alert alert-light">
+                <h2>Détails</h2>
+                
+                <hr>
+                <h2 class="alert-heading">Votre hôte</h2>
+                <div class="row">
+                    <div class="col-3"><img class="rounded-circle w-75" src="{{booking.ad.author.picture}}" alt=""></div>
+                    <div class="col-9">
+                        <h4>
+                            <a href="{{ path('user_show', {'slug': booking.ad.author.slug}) }}">{{booking.ad.author.firstName}}</a>
+                            <span class="badge badge-primary">
+                                {{booking.ad.author.ads|length}} annonces
+                            </span>
+                          
+                        </h4>
+                        <p>
+                            {{booking.ad.author.description|raw}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="alert alert-light">
+                <h2 class="alert-heading">Votre hébergement</h2>
+                <h4>
+                    <a href="{{ path('ads_show', {'slug': booking.ad.slug}) }}">{{booking.ad.title}}</a>
+                </h4>
+                <img class="w-100" src="{{booking.ad.coverImage}}" alt="">
+                {{booking.ad.content | raw}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'admin_ad/base.html.twig' %}
+
+{% block body %}
+<div class="col-md-9 col-lg-10 p-0">
+    <div class="jumbotron jumbotron-fluid pt-4 pb-4">
+        <div class="container">
+            <h1 class="display-4">gestion des reservations</h1>
+            <p class="lead">Espace de gestion des reservations.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h3>Liste des reservations</h3>
+        <table class="table table-striped m-4">
+                <thead>
+                  <tr>
+                    <th scope="col">Annonce</th>
+                    <th scope="col">Date de début</th>
+                    <th scope="col">Date de fin</th>
+                    <th scope="col">Montant</th>
+                    <th scope="col">Utilisateur</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                    <th>{{booking.ad.title}}</th>
+                    <td><a href="">{{booking.startDate}}</a></th>
+                    <td><a href="">{{booking.endDate}}</a></th>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="">Modidier</a>
+                                <a class="dropdown-item" href="">Supprimer</a>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

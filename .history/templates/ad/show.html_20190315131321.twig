@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ad.title}}{% endblock %}
+
+{% block body %}
+
+<div class="container">   
+    <div class="row">
+        <div class="col-12 img-ad">
+            <img src="{{ad.coverImage}}" alt="{{ad.slug}}">
+        </div>
+    </div>
+    <div class="row ad-content">
+        <div class="col-8 ad-info">
+           <h5>{{ad.place}}</h5>
+           <h4>{{ad.title}}</h4>
+           <h6>{{ad.city}}</h6>
+        </div>
+        <div class="col-4">
+            <div class="card card-booking">  
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3 align-self-center">
+                            <img class="img-ad-user" src="{{ad.author.picture}}" alt="">
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-12">
+                                    <span class="price-booking">{{ad.price}}&euro; </span>par nuit
+                                </div>
+                            </div>
+                            <a href="{{path('user_show', {'slug' : ad.author.slug})}}">
+                                <div class="row">
+                                    <div class="col-12 card-booking-stars">
+                                        
+                                        <span class="param-booking-stars">
+                                            {% for i in 1..ad.avgRatings %}
+                                                <i class="fas fa-star"></i>
+                                            {% endfor %}
+
+                                        </span>
+                                        <span class="card-parameter-vote">({{ ad.comments | length }})</span> . <span class="card-parameter-rank">{{ad.author.slug}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>                  
+                    <hr />
+                    <p>{{ad.author.description}}</p>
+                    <hr/>
+                    <span class="booking-btn">
+                        <a href="{{ path('booking_create', {'slug' : ad.slug}) }}">Réserver</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        {% for comments in comment %}
+            
+            <div class="row">
+                <div class="col-3">
+                    <img class="rounded-circle w-50" src="{{comments.author.picture}}" alt="">
+                    <span>{{comments.createdAt|date("m/d/Y")}}</span>
+
+                </div>
+                <div class="col-9">
+                    <span>Note : 
+                        {% for i in 1..comments.rating %}
+                            <i class="fas fa-star"></i>
+                        {% endfor %}
+                    </span>
+                    <p class="text-left">{{comments.content}}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div id="carouselExampleIndicators" class="carousel slide w-50" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for image in ad.images %}
+                     <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}" {% if loop.first %}class="active"{% endif %}></li>
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner">
+                    {% for image in ad.images %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <img class="d-block w-100" src="{{ image.url }}" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ ad.title }}</h5>
+                                <p>{{ image.caption }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+    </div>
+    
+    
+
+{% endblock %}

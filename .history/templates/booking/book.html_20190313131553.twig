@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookingController!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css
+">
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <h1>Réservez pour l'annonce : {{ ad.title }}</h1>
+    <p>Vous êtes sur le point de réserve le bien de {{ad.author.firstName}}</p>
+
+    {{form_start(form)}}
+    <div class="alert alert-light">
+        <h2>Choisissez vos dates d'arrivée et de départ</h2>
+        <row>
+            <div class="col">{{ form_row(form.startDate) }}
+</div>
+            <div class="col">{{ form_row(form.endDate) }}
+</div>
+        </row>
+        <h4>Montant du séjour : <span id="amount">...</span> &euro;</h4>
+        <span id="days">0</span> nuit(s) à {{ad.price}} / nuit
+    </div>
+
+    <h2>Laissez un commentaire !</h2>
+    {{ form_row(form.comment) }}
+
+    <button type="submit" class="btn btn-success">Je réserve</button>
+
+    {{ form_end(form) }}
+
+    	
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#booking_startDate, #booking_endDate').datepicker({
+            format: 'dd/mm/yyyy',
+            datesDisabled : [
+                {% for day in ad.notAvailableDays %}
+                    "{{ day.format('d/m/Y') }}",
+                {% endfor %}
+            ],
+            startDate: new Date()
+        });
+    });
+
+    function calculateAmount(){
+        const endDate = new Date($('#booking_endDate').val());
+        const endDate = new Date($('#booking_startDate').val());
+
+        if(startDate && endDate && startDate < endDate){
+
+            const interval = endDate.getTime() - startDate.getTime();
+            const days = interval / 24 * 60 * 60 *1000;
+            const amount = days * {{ ad.price }}
+        }
+    }
+</script>
+{% endblock %}

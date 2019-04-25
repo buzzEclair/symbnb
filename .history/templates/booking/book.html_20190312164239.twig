@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookingController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Réservez pour l'annonce : {{ ad.title }}</h1>
+    <p>Vous êtes sur le point de réserve le bien de {{ad.author.firstName}}</p>
+
+    {{form_start(form)}}
+    <div class="alert alert-light">
+        <h2>Choisissez vos dates d'arrivée et de départ</h2>
+        <row>
+            <div class="col">{{ form_row(form.startDate) }}
+</div>
+            <div class="col">{{ form_row(form.endDate) }}
+</div>
+        </row>
+    </div>
+    <h4>Montant du séjour : <span id="amount">...</span> &euro;</h4>
+    <span id="days">0</span> nuit(s) à {{ad.price}} / nuit
+    {{ form_end(form) }}
+</div>
+{% endblock %}

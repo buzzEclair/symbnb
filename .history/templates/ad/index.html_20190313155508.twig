@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h4 class="title-page-header"><span class="city-name-title">symbnb</span> - Annonces</h4>
+    <div class="row">
+        {% for ad in ads %}
+        {% set url = path('ads_show', {'slug' : ad.slug }) %}
+        <div class="col-sm-4">
+            <a href="{{ url }}">
+            <div class="card" style="width: 18rem;">  
+                <img class="card-img-top" src="{{ad.coverImage}}" alt="Card image cap">
+                <div class="card-body">
+                    <h6><span class="card-parameter-surface">logement entier</span> - <span class="card-parameter-bed">{{ad.rooms}}</span> lits</h6>
+                    <h5 class="card-title">{{ad.title|striptags|slice(0,25) }}...</h5>
+                    <p class="card-info-1">
+                    <span class="card-parameter-price">{{ad.price}}</span> € par nuit - <span class="card-parameter-cancel">Annulation gratuite</span>
+                    </p>
+                    <p class="card-info-2">
+                    <span class="card-parameter-stars">
+                        
+                        {% for i in 1..5 %}
+                        {% if i <= comments.rating %}
+                            <i class="fas fa-star"></i>
+                        {% endif %}
+                        {% endfor %}
+                    </span>
+                    <span class="card-parameter-vote">{{ ad.comments | length }}</span> . <span class="card-parameter-rank">Kinghost</span>
+                    </p>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

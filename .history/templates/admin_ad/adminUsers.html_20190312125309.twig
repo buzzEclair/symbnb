@@ -1,0 +1,45 @@
+{% extends 'admin_ad/base.html.twig' %}
+
+{% block body %}
+<div class="col-md-9 col-lg-10 p-0">
+    <div class="jumbotron jumbotron-fluid pt-4 pb-4">
+        <div class="container">
+            <h1 class="display-4">Gestion des utilisateurs</h1>
+            <p class="lead">Espace de gestion des utilisateurs.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h3>Liste des utilisateurs</h3>
+        <table class="table table-striped m-4">
+                <thead>
+                  <tr>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Nom / Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                    <th>{{user.picture}}</th>
+                    <th>{{user.firstName}} {{user.lastName}}</th>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="">Modidier</a>
+                                <a class="dropdown-item" href="#">Supprimer</a>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

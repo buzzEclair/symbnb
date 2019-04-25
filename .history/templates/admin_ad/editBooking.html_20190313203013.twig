@@ -1,0 +1,25 @@
+{% extends 'admin_ad/base.html.twig' %}
+
+    {% form_theme form '/./ad/_collection.html.twig' %}
+
+{% block body %}
+<div class="col-md-9 col-lg-10 p-0">
+    <div class="jumbotron jumbotron-fluid pt-4 pb-4">
+        <div class="container">
+            <h1 class="display-4">Modifier la réservation n°{{ bookingaire.id }}</h1>
+            <p class="lead">Espace de gestion de la réservation n°{{ bookingaire.id }}.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary" type="submit">Modifier le commentaire</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="/js/ad.js" ></script>
+{% endblock %}

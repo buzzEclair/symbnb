@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {% endblock %}
+
+{% block body %}
+<div class="main main-raised">
+    <div class="profile-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="{{user.picture}}" alt="Circle Image" class="img-raised rounded-circle mx-auto d-block">
+                        </div>
+                        <div class="name">
+                            <h3 class="title text-center mt-2">{{user.firstName}} {{user.lastName}}</h3>
+                            <p class="text-center mt-10">{{user.ads | length}} Annonces en ligne</p>
+                            <div class="row">
+                                {% if user is same as (app.user) %}
+                                <div class="col-md-6">
+                                    <a href="{{path('account_profile')}}" class="btn btn-dark btn-sm mb-4">Modifier mes informations</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="{{path('account_update_password')}}" class="btn btn-dark btn-sm mb-4">Modifier mon mot de passe</a>
+                                </div>
+                                {% endif %}         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="description text-center">
+                <p>{{user.introduction}}</p>
+                <hr/>
+                {{user.description}}
+                <hr/>
+            </div>
+            {% if user.ads | length > 0 %}
+            <div class="row">
+                {% for ad in user.ads %}
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" style="min-width: 250px" src="{{ad.coverImage}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ad.title|striptags|slice(0,25)}}</h5>
+                            <p class="card-text">{{ad.introduction |striptags|slice(0,75)}} ...</p>
+                            <a href="{{path('ads_show', {'slug' : ad.slug })}}" class="btn btn-primary">Voir l'annonce</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <div class="alert alert-warning">
+                    Il n'y pas d'annonce sur ce compte
+                </div>
+            {% endif %}
+        </div>
+    
+ 
+
+    
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-2">
+            <img src="{{user.picture}}" alt="{{user.slug}}" class="rounded-circle ">
+            <p>{{user.firstName}} {{user.lastName}}</p>
+            <span>Mon Compte</span>
+            <ul>
+                <li>
+                    <a class="dropdown-account" href="{{ path('account_profile') }}"><i class=" fas fa-info-circle"></i> Modifier mes informations</a>
+                </li>
+                <li>
+                    <a class="dropdown-account" href="{{ path('account_update_password') }}"><i class="fas fa-key"></i> Changer de mot de passe</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <h4>Mes réservations</h4>
+            <div class="block-profile">
+                
+                {% for booking in app.user.bookings %}
+                <div class="row booking-profile justify-content-center">
+                    <div class="col-11 booking-profile-ligne" >        
+                        <img class="align-middle" src="{{booking.ad.coverImage}}" alt="{{booking.ad.slug}}">
+                       
+                        <div class="info-booking-profile">
+                            <span><strong>{{booking.ad.title}} n°{{ booking.id }}</strong></span>
+                            
+                            <span> Du {{booking.startDate|date('d/m/Y')}} au {{booking.endDate|date('d/m/Y')}} Montant {{booking.amount}} &euro;</span>
+                            <span>
+                                <a href="{{ path('booking_show', {'id': booking.id}) }}" class="btn btn-sm">Voir réservation</a>
+                                <a href="{{ path('account_bookings_comment', {'id': booking.id}) }} " class="btn btn-sm">Laisser un commentaire</a>
+                            </span>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+               
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-4">
+            <div>
+                <h5 class="text-muted">Description</h5>
+                <p>{{user.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
