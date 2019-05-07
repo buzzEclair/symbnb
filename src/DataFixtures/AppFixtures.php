@@ -10,7 +10,6 @@ use App\Entity\Image;
 use App\Entity\Booking;
 use App\Entity\Comment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Unsplash\OAuth2\Client\Provider\Unsplash;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -82,7 +81,6 @@ class AppFixtures extends Fixture
             $ad = new Ad();
 
             $title = $faker->sentence();
-            $testImage = new Unsplash();
             $coverImage = $faker->imageUrl(1000,500);
             $introduction = $faker->paragraph(2);
             $content = '<p>' . join('</p><p>', $faker->paragraphs(5)) . '</p>';
