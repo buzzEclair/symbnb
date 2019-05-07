@@ -169,29 +169,29 @@ a:hover{
     font-size: 12px;
 }
 
-.ad-content{
+.adx-content{
     margin-top: 50px;
 }
 
-.ad-info h5{
+.adx-info h5{
     font-size: 15px;
     font-weight: 600;
 }
 
-.ad-info h4{
+.adx-info h4{
     font-size: 25px;
     font-weight: 900;
 }
 
-.ad-info h6{
+.adx-info h6{
     font-size: 15px;
 }
 
-.img-ad{
+.img-adx{
     padding:0;
 }
 
-.img-ad img{
+.img-adx img{
    width: 100%;
 }
 
