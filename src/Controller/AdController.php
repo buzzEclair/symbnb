@@ -3,15 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Form\AddsType;
+use App\Entity\Comment;
+use App\Form\OtherType;
 use App\Repository\AdRepository;
+use App\Repository\CommentRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Form\AdsType;
-use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Comment;
-use App\Repository\CommentRepository;
 
 class AdController extends AbstractController
 {
@@ -21,7 +22,7 @@ class AdController extends AbstractController
     public function index(AdRepository $repo)
     {
         $ads = $repo->findAll();
-
+        
         return $this->render('ad/index.html.twig', [
             'ads' => $ads,
         ]);
@@ -36,7 +37,7 @@ class AdController extends AbstractController
 
         $ad = new Ad();
 
-        $form = $this->createForm(AdsType::class, $ad);
+        $form = $this->createForm(OtherType::class, $ad);
 
         $form->handleRequest($request);
       
@@ -74,12 +75,12 @@ class AdController extends AbstractController
      */
     public function edit(Request $request,Ad $ad,ObjectManager $manager){
 
-        $form = $this->createForm(AdsType::class, $ad);
+        $form = $this->createForm(OtherType::class, $ad);
 
         $form->handleRequest($request);
-
+       
         if($form->isSubmitted() && $form->isValid()){
-
+   
             foreach($ad->getImages() as $image){
                 $image->setAd($ad);
                 $manager->persist($image);

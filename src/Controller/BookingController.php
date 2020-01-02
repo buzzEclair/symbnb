@@ -55,7 +55,6 @@ class BookingController extends AbstractController
      * @return Response
      */
     public function show(Booking $booking){
-
         return $this->render('booking/show.html.twig', [
             'booking' => $booking
         ]);

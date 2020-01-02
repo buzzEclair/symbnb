@@ -51,11 +51,19 @@ ul li{
 }
 
 .container{
-    margin-top: 50px;
+   margin-top: 50px;
+   min-height: 100vh;
 }
 
 .card{
     max-width: 270px;
+    border: none;
+    margin-bottom: 50px !important;
+    box-shadow: 1px 1px 21px 0 rgba(0,0,0,0.14), -1px -1px 21px 0 rgba(0,0,0,0.14);
+    transition-duration: 0.5s;
+}
+.card-signin{
+    
     border: none;
     margin-bottom: 50px !important;
     box-shadow: 1px 1px 21px 0 rgba(0,0,0,0.14), -1px -1px 21px 0 rgba(0,0,0,0.14);
@@ -102,6 +110,7 @@ a:hover{
 .user-avatar-nav{
     width: 30px;
     margin-right: 5px;
+    height: 30px;
 }
 
 .dropdown-account i {
@@ -168,7 +177,10 @@ a:hover{
     margin-top: 20px;
     font-size: 12px;
 }
-
+.profile-option img{
+   width: 80px;
+   height: 80px;
+}
 .adx-content{
     margin-top: 50px;
 }

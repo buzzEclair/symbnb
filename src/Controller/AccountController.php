@@ -99,7 +99,7 @@ class AccountController extends AbstractController
                 'Votre profil a bien été modifié'
             );
 
-            return $this->redirectToRoute('account_profile');
+            return $this->redirectToRoute('account_index');
         }
         
         return $this->render('account/edit.html.twig', [

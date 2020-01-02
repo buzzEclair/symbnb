@@ -6,6 +6,11 @@
 <div class="container"> 
         <h4>Mes Réservation</h4>
         {% for booking in app.user.bookings %}
+
+        {% if booking is empty %}
+         <p>Vous n'avez pas de réservation</p>
+         <a href="{{ path('ads_index') }}" class="btn btn-info btn-sm">Voir les annonces</a>
+        {% else %}
         <div class="row">
            <div class="col-4">
                <img src="{{booking.ad.coverImage}}"  class="w-100" alt="">
@@ -20,6 +25,8 @@
            </div>
         </div>
         <br>
+        {% endif %}
+        
         {% endfor %}
     </div>
 {% endblock %}

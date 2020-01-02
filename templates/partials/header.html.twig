@@ -30,8 +30,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ path('ads_create') }}"><i class="fas fa-list-alt"></i> Créer une annonce</a>
                     <a class="dropdown-item" href="{{ path('account_bookings') }}"><i class="fas fa-book"></i> Mes réservations</a>
-                    <a class="dropdown-item" href="{{ path('account_profile') }}"><i class="fas fa-info-circle"></i> Modifier mes informations</a>
-                    <a class="dropdown-item" href="{{ path('account_update_password') }}"><i class="fas fa-key"></i> Changer de mot de passe</a>
+                    <a class="dropdown-item" href="{{ path('account_profile') }}"><i class="fas fa-info-circle"></i> Modifier mes informations</a>                    <a class="dropdown-item" href="{{ path('account_update_password') }}"><i class="fas fa-key"></i> Changer de mot de passe</a>
                     
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ path('account_logout') }}"><i class="fas fa-times-circle"></i> Logout</a>
@@ -39,10 +38,10 @@
             </div>
             {% else %}
                 <li class="nav-item">
-                    <a href="{{ path('account_register') }}">Inscription</a>
+                    <a class="nav-link" href="{{ path('account_register') }}">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ path('account_login') }}">Connexion</a>
+                    <a class="nav-link" href="{{ path('account_login') }}">Connexion</a>
                 </li>
             {% endif %}
             

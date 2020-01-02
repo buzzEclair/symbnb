@@ -128,7 +128,7 @@ class AppFixtures extends Fixture
                 ;
 
                 $manager->persist($booking);
-             }
+            }
 
            
             for ($j=1; $j <= mt_rand(1, 4); $j++) { 
